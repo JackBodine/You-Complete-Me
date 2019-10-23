@@ -9,18 +9,18 @@ public class Word implements Comparable<Word>
 {
     // instance variables - replace the example below with your own
     private String word;
-    private int score;
+    private long score;
     
     /**
      * Constructor for objects of class Word
      */
-    public Word(String w, int s)
+    public Word(String w, long s)
     {
         this.word = w.toLowerCase();
         this.score = s;
     }
 
-    public int getScore()
+    public long getScore()
     {
         return this.score;
     }
@@ -31,6 +31,12 @@ public class Word implements Comparable<Word>
     @Override
     public int compareTo(Word compareWord)
     {
-        return 0;
+        if (this.score > compareWord.getScore()){
+            return 1;
+        } else if(this.score < compareWord.getScore()){
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

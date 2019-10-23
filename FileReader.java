@@ -34,7 +34,7 @@ public class FileReader
         while(file.hasNext()== true){
             String line = file.nextLine();
             String[] wordsInLine = line.split(" ");
-            int score = Integer.parseInt(wordsInLine[0]);
+            long score = Long.parseLong(wordsInLine[0]);
             words.add(new Word(wordsInLine[1], score));
             
         }
