@@ -36,7 +36,6 @@ public class FileReader
             String[] wordsInLine = line.split(" ");
             long score = Long.parseLong(wordsInLine[0]);
             words.add(new Word(wordsInLine[1], score));
-            
         }
         // For Testing Purposes.
         for(int i = 0; i < words.size(); i++){

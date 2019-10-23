@@ -1,3 +1,9 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.Collections;
 
 /**
  * Write a description of class BinarySearch here.
@@ -8,26 +14,22 @@
 public class BinarySearch
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private ArrayList<Word> possibleWords;
+    private String prefix;
 
     /**
      * Constructor for objects of class BinarySearch
      */
-    public BinarySearch()
+    public BinarySearch(String str)
     {
-        // initialise instance variables
-        x = 0;
+        this.prefix = str;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public ArrayList<Word> searchFor(String str, ArrayList<Word> allWords){
+        for(int i = 0; i < allWords.size(); i++){
+            
+        }
+        
+        return possibleWords;
     }
 }
