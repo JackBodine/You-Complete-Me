@@ -24,13 +24,13 @@ public class FileReader
     public FileReader()
     {
        words = new ArrayList<>();
-
     }
 
-    public static ArrayList<Word> train(String fileName, ArrayList<Word> words) throws FileNotFoundException{
+    public static ArrayList<Word> train(String fileName) throws FileNotFoundException{
 
         Scanner keyboard = new Scanner(System.in);  // Used to get keyboard input
         Scanner file = new Scanner(new File(fileName));
+        
         while(file.hasNext()== true){
             String line = file.nextLine();
             String[] wordsInLine = line.split(" ");
@@ -38,12 +38,12 @@ public class FileReader
             words.add(new Word(wordsInLine[1], score));
         }
         // For Testing Purposes.
-        for(int i = 0; i < words.size(); i++){
+        /*for(int i = 0; i < words.size(); i++){
             System.out.println("Word: "+words.get(i).getWord());
             System.out.println("Score: "+words.get(i).getScore());
             System.out.println(" ");
 
-        }
+        }*/
 
         return words;
     }
