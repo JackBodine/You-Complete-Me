@@ -1,8 +1,11 @@
 #BlueJ package file
+dependency1.from=FileReader
+dependency1.to=Word
+dependency1.type=UsesDependency
 editor.fx.0.height=722
 editor.fx.0.width=800
-editor.fx.0.x=730
-editor.fx.0.y=134
+editor.fx.0.x=462
+editor.fx.0.y=121
 objectbench.height=101
 objectbench.width=461
 package.divider.horizontal=0.6
@@ -13,7 +16,7 @@ package.editor.x=64
 package.editor.y=124
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=4
 package.showExtends=true
 package.showUses=true

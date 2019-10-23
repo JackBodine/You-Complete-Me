@@ -5,30 +5,32 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Word
+public class Word implements Comparable<Word>
 {
     // instance variables - replace the example below with your own
     private String word;
     private int score;
-
+    
     /**
      * Constructor for objects of class Word
      */
-    public Word()
+    public Word(String w, int s)
     {
-        // initialise instance variables
-        x = 0;
+        this.word = w.toLowerCase();
+        this.score = s;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public int getScore()
     {
-        // put your code here
-        return x + y;
+        return this.score;
+    }
+    public String getWord()
+    {
+        return this.word;
+    }
+    @Override
+    public int compareTo(Word compareWord)
+    {
+        return 0;
     }
 }
