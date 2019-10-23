@@ -20,16 +20,21 @@ public class BinarySearch
     /**
      * Constructor for objects of class BinarySearch
      */
-    public BinarySearch(String str)
+    public BinarySearch()
     {
-        this.prefix = str;
-    }
 
+    }
+    /**
+     * So basically, binary search for a Word where the word within has the input prefix, then check up and down from that one
+     * until you find ones that don't have the prefix. Add each of the words with the prefix to possibleWords
+     */
     public ArrayList<Word> searchFor(String str, ArrayList<Word> allWords){
-        for(int i = 0; i < allWords.size(); i++){
-            
+        Boolean prefixFound = false;
+        int i = 0;
+        while(!prefixFound){
+            // yo did you update also remember to push
         }
-        
+
         return possibleWords;
     }
 }
