@@ -39,12 +39,12 @@ public class FileReader
             
         }
         // For Testing Purposes.
-        for(int i = 0; i < words.size(); i++){
+        /*for(int i = 0; i < words.size(); i++){
             System.out.println("Word: "+words.get(i).getWord());
             System.out.println("Score: "+words.get(i).getScore());
             System.out.println(" ");
 
-        }
+        }*/
 
         return words;
     }

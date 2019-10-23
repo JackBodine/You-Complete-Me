@@ -9,12 +9,6 @@ import java.util.ArrayList;
  */
 public class UserInterface
 {
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public void main()
     {
         ArrayList<Word> words = new ArrayList<>();
@@ -34,8 +28,9 @@ public class UserInterface
         
         boolean askForPrefix = true;
         while (askForPrefix){
-            
-            
+            System.out.println("What is your search?");
+            String prefix = scan.nextLine();
         }
+        
     }
 }
