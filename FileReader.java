@@ -24,13 +24,13 @@ public class FileReader
     public FileReader()
     {
        words = new ArrayList<>();
-
     }
 
-    public static ArrayList<Word> train(String fileName, ArrayList<Word> words) throws FileNotFoundException{
+    public static ArrayList<Word> train(String fileName) throws FileNotFoundException{
 
         Scanner keyboard = new Scanner(System.in);  // Used to get keyboard input
         Scanner file = new Scanner(new File(fileName));
+        
         while(file.hasNext()== true){
             String line = file.nextLine();
             String[] wordsInLine = line.split(" ");
