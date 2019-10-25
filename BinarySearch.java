@@ -30,9 +30,58 @@ public class BinarySearch
      */
     public ArrayList<Word> searchFor(String str, ArrayList<Word> allWords){
         Boolean prefixFound = false;
-        int i = 0;
+        int minimum = 0;
+        int maximum = allWords.size();
+        int mid;
+        int theFirstIndexFound = -1;
+        int theFirstIndexWithPrefix = -1;
+        int theLastIndexWithPrefix = -1;
+        
         while(!prefixFound){
-            // yo did you update also remember to push
+            // did you update also remember to push
+            mid = (minimum + maximum) / 2;
+            String s = allWords.get(mid).getWord();  // s is the word in allWords whose index is mid
+            String sPrefix = s.substring(0, Math.min(s.length(), str.length()));  // sPrefix = first n letters of s where n is the length of str
+
+            if(sPrefix.equals(str)){
+                theFirstIndexFound = mid;
+                prefixFound = true;
+            }
+            else if(sPrefix.compareTo(str) < 0){  // sPrefix comes after input str
+                minimum = mid;
+            }
+            else if(sPrefix.compareTo(str) > 0){  // sPrefix comes before input str
+                maximum = mid;
+            }
+        }
+        
+        if(theFirstIndexFound >= 0){ // here we will check up and down from the one the while loop found
+            Boolean firstIndexIsFound = false;
+            Boolean lastIndexIsFound = false;
+            int i = 1;
+            while(!firstIndexIsFound){
+                String sPrevious = allWords.get(theFirstIndexFound - i).getWord();
+                String sPreviousPrefix = sPrevious.substring(0, Math.min(sPrevious.length(), str.length()));
+                if(!sPreviousPrefix.equals(str)){
+                    firstIndexIsFound = true;
+                    theFirstIndexWithPrefix = theFirstIndexFound - i + 1;
+                }
+                i++;
+            }
+            i = 1;
+            while(!lastIndexIsFound){
+                String sNext = allWords.get(theFirstIndexFound + i).getWord();
+                String sNextPrefix = sNext.substring(0, Math.min(sNext.length(), str.length()));
+                if(!sNextPrefix.equals(str)){
+                    lastIndexIsFound = true;
+                    theLastIndexWithPrefix = theFirstIndexFound + i - 1;
+                }
+                i++;
+            }
+        }
+        
+        for(int i = theFirstIndexWithPrefix; i <= theLastIndexWithPrefix; i++){
+            possibleWords.add(allWords.get(i));
         }
 
         return possibleWords;
