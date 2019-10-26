@@ -23,7 +23,7 @@ public class UserInterface
             words = fr.train(fileName);
         } 
         catch(Exception e){
-            System.out.println("Error: "+e);
+            System.out.println("Error: " + e);
         }
         
         boolean askForPrefix = true;

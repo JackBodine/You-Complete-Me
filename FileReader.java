@@ -8,7 +8,7 @@ import java.util.Collections;
 /**
  * Write a description of class FileReader here.
  *
- * @author (your name)
+ * @author Jack Bodine
  * @version (a version number or a date)
  */
 public class FileReader

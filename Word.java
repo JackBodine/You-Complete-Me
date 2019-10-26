@@ -2,7 +2,7 @@
 /**
  * Write a description of class Word here.
  *
- * @author (your name)
+ * @author Jack Bodine
  * @version (a version number or a date)
  */
 public class Word implements Comparable<Word>

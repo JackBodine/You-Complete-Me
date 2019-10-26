@@ -8,35 +8,32 @@ import java.util.Collections;
 /**
  * Write a description of class BinarySearch here.
  *
- * @author (your name)
+ * @author Andy Chamberlain
  * @version (a version number or a date)
  */
 public class BinarySearch
 {
-    // instance variables - replace the example below with your own
-    private ArrayList<Word> possibleWords;
-    private String prefix;
+    private static ArrayList<Word> possibleWords = new ArrayList<>();
 
     /**
      * Constructor for objects of class BinarySearch
      */
-    public BinarySearch()
-    {
-
+    public BinarySearch(){
     }
+
     /**
      * So basically, binary search for a Word where the word within has the input prefix, then check up and down from that one
      * until you find ones that don't have the prefix. Add each of the words with the prefix to possibleWords
      */
-    public ArrayList<Word> searchFor(String str, ArrayList<Word> allWords){
+    public static ArrayList<Word> searchFor(String str, ArrayList<Word> allWords){
         Boolean prefixFound = false;
         int minimum = 0;
-        int maximum = allWords.size();
+        int maximum = allWords.size() - 1;
         int mid;
         int theFirstIndexFound = -1;
         int theFirstIndexWithPrefix = -1;
         int theLastIndexWithPrefix = -1;
-        
+
         while(!prefixFound){
             // did you update also remember to push
             mid = (minimum + maximum) / 2;
@@ -54,7 +51,7 @@ public class BinarySearch
                 maximum = mid;
             }
         }
-        
+
         if(theFirstIndexFound >= 0){ // here we will check up and down from the one the while loop found
             Boolean firstIndexIsFound = false;
             Boolean lastIndexIsFound = false;
@@ -78,12 +75,11 @@ public class BinarySearch
                 }
                 i++;
             }
-        }
-        
-        for(int i = theFirstIndexWithPrefix; i <= theLastIndexWithPrefix; i++){
-            possibleWords.add(allWords.get(i));
-        }
 
+            for(int k = theFirstIndexWithPrefix; k <= theLastIndexWithPrefix; k++){
+                possibleWords.add(allWords.get(k));
+            }
+        }
         return possibleWords;
     }
 }
