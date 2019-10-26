@@ -8,7 +8,7 @@ import java.util.Collections;
 /**
  * Write a description of class FileReader here.
  *
- * @author Jack Bodine
+ * @author Jack, Angel, Andy
  * @version (a version number or a date)
  */
 public class FileReader
@@ -35,7 +35,7 @@ public class FileReader
             String line = file.nextLine();
             String[] wordsInLine = line.split(" ");
             long score = Long.parseLong(wordsInLine[0]);
-            words.add(new Word(wordsInLine[1], score));
+            words.add(new Word(wordsInLine[1].toLowerCase(), score));
         }
         // For Testing Purposes.
         /*for(int i = 0; i < words.size(); i++){

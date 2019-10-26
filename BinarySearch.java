@@ -6,15 +6,13 @@ import java.util.Scanner;
 import java.util.Collections;
 
 /**
- * Write a description of class BinarySearch here.
- *
- * @author Andy Chamberlain
+ * BinarySearch contains the function searchFor(String, ArrayList<Word>)
+ * 
+ * @author Jack, Angel, Andy
  * @version (a version number or a date)
  */
 public class BinarySearch
 {
-    private static ArrayList<Word> possibleWords = new ArrayList<>();
-
     /**
      * Constructor for objects of class BinarySearch
      */
@@ -22,10 +20,16 @@ public class BinarySearch
     }
 
     /**
-     * So basically, binary search for a Word where the word within has the input prefix, then check up and down from that one
-     * until you find ones that don't have the prefix. Add each of the words with the prefix to possibleWords
+     * searchFor(String, ArrayList<Word> searches for a Word.getWord() which contains the input prefix in the sorted words ArrayList.
+     * Once it has found one, it marks that with the index variable theFirstIndexFound, then it checks upward and downward from
+     * that first Word.getWord() until it stops finding the prefix. All of the words it finds up until the prefix is no longer present
+     * are added to the ArrayList possibleWords which is returned.
+     * 
+     * @parameters String, ArrayList<Word>
      */
     public static ArrayList<Word> searchFor(String str, ArrayList<Word> allWords){
+        ArrayList<Word> possibleWords = new ArrayList<>();
+
         Boolean prefixFound = false;
         int minimum = 0;
         int maximum = allWords.size() - 1;
@@ -34,11 +38,19 @@ public class BinarySearch
         int theFirstIndexWithPrefix = -1;
         int theLastIndexWithPrefix = -1;
 
+        String lastWordChecked = "";
+
         while(!prefixFound){
             // did you update also remember to push
             mid = (minimum + maximum) / 2;
             String s = allWords.get(mid).getWord();  // s is the word in allWords whose index is mid
             String sPrefix = s.substring(0, Math.min(s.length(), str.length()));  // sPrefix = first n letters of s where n is the length of str
+
+            //checks if the current word is the same as the last word; that indicates the prefix does not exist within BinarySearch
+            if(s == lastWordChecked){
+                prefixFound = true; // the prefix hasn't really been found but the loop needs to stop
+                break;
+            }
 
             if(sPrefix.equals(str)){
                 theFirstIndexFound = mid;
@@ -50,6 +62,7 @@ public class BinarySearch
             else if(sPrefix.compareTo(str) > 0){  // sPrefix comes before input str
                 maximum = mid;
             }
+            lastWordChecked = s;
         }
 
         if(theFirstIndexFound >= 0){ // here we will check up and down from the one the while loop found

@@ -7,10 +7,9 @@
  */
 public class Word implements Comparable<Word>
 {
-    // instance variables - replace the example below with your own
     private String word;
     private long score;
-    
+
     /**
      * Constructor for objects of class Word
      */
@@ -19,24 +18,29 @@ public class Word implements Comparable<Word>
         this.word = w.toLowerCase();
         this.score = s;
     }
-
+    
+    /**
+     * gets the frequency, or score of a Word object
+     */
     public long getScore()
     {
         return this.score;
     }
+    
+    /**
+     * gets the actual word in the Word object
+     */
     public String getWord()
     {
         return this.word;
     }
+    
+    /**
+     * Overrides compareTo in order to properly compare and alphabetize Word objects by their words.
+     */
     @Override
     public int compareTo(Word compareWord)
     {
-        if (this.score > compareWord.getScore()){
-            return 1;
-        } else if(this.score < compareWord.getScore()){
-            return -1;
-        } else {
-            return 0;
-        }
+        return this.word.compareTo(compareWord.getWord());
     }
 }

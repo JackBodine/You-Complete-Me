@@ -2,12 +2,12 @@ import java.util.ArrayList;
 /**
  * Write a description of class Tester here.
  *
- * @author (your name)
+ * @author Jack, Angel, Andy
  * @version (a version number or a date)
  */
 public class Tester
 {
-    public static void main(String[] args){
+    public static void mainTester(){
         ArrayList<Word> words = new ArrayList<>();
         Word word1 = new Word("police", 12);
         Word word2 = new Word("polyglot", 54);
