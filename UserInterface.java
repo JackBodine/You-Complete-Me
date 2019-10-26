@@ -6,10 +6,10 @@ import java.util.*;
 import java.lang.*; 
 import java.io.*; 
 /**
- * Write a description of class UserInterface here.
+ * This is where the high level commands happen
  *
  * @author Jack, Angel, Andy
- * @version (a version number or a date)
+ * @version October 2019
  */
 public class UserInterface
 {
@@ -34,14 +34,14 @@ public class UserInterface
                 askForPrefix = false;  //doesn't make sense to ask for the prefix if the file hasn't been read properly
             }
 
-            Collections.sort(words);
+            Collections.sort(words); //sorts words by Word.getWord() alphabetically
 
             while (askForPrefix){
                 System.out.println("What is your search?");
                 String prefix = scan.nextLine();
                 ArrayList<Word> result = BinarySearch.searchFor(prefix, words);
 
-                // Sort result by frequency (score)
+                // Sort result by frequency (Word.getScore())
                 Collections.sort(result, new Comparator<Word>(){
                         public int compare(Word a, Word b){
                             if(a.getScore() == b.getScore()){

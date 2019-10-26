@@ -25,7 +25,10 @@ public class FileReader
     {
        words = new ArrayList<>();
     }
-
+    /**
+     * train(String) doesn't really train anything but it reads the file into an arraylist of Word objects
+     * each Word is used to store the frequency and the word.
+     */
     public static ArrayList<Word> train(String fileName) throws FileNotFoundException{
 
         Scanner keyboard = new Scanner(System.in);  // Used to get keyboard input
@@ -37,14 +40,7 @@ public class FileReader
             long score = Long.parseLong(wordsInLine[0]);
             words.add(new Word(wordsInLine[1].toLowerCase(), score));
         }
-        // For Testing Purposes.
-        /*for(int i = 0; i < words.size(); i++){
-            System.out.println("Word: "+words.get(i).getWord());
-            System.out.println("Score: "+words.get(i).getScore());
-            System.out.println(" ");
-
-        }*/
-
+        
         return words;
     }
 
