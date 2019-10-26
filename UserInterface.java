@@ -18,10 +18,15 @@ public class UserInterface
         ArrayList<Word> words = new ArrayList<>();
         String fileName = "";
         Scanner scan = new Scanner(System.in);
-
-        while(true){
+        
+        boolean takeInput = true;
+        while(takeInput){
             System.out.println("What is the file name?");
             fileName = scan.nextLine();
+            if(fileName.equals(".quit")){
+                takeInput = false;
+                return;
+            }
 
             boolean askForPrefix = true;
 
@@ -39,9 +44,14 @@ public class UserInterface
             while (askForPrefix){
                 System.out.println("What is your search?");
                 String prefix = scan.nextLine();
+                if(prefix.equals(".quit")){
+                    takeInput = false;
+                    return;
+                }
+                
                 ArrayList<Word> result = BinarySearch.searchFor(prefix, words);
 
-                // Sort result by frequency (Word.getScore())
+                // Sort result by frequency using... COMPARATOR! hooray. Frequency is found with Word.getScore()
                 Collections.sort(result, new Comparator<Word>(){
                         public int compare(Word a, Word b){
                             if(a.getScore() == b.getScore()){
@@ -55,9 +65,16 @@ public class UserInterface
                             }
                         }
                     });
-
-                for(int i = result.size() - 1; i > result.size() - 11; i--){
-                    System.out.print(result.get(i).getWord());
+                    
+                if(result.size() >= 10){
+                    for(int i = result.size() - 1; i > result.size() - 11; i--){
+                        System.out.println(result.get(i).getWord());
+                    }
+                }
+                else{
+                    for(int i = result.size() - 1; i > -1; i--){
+                        System.out.println(result.get(i).getWord());
+                    }
                 }
             }
         }

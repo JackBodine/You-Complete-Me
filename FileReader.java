@@ -43,5 +43,4 @@ public class FileReader
         
         return words;
     }
-
 }
