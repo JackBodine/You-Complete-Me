@@ -28,7 +28,6 @@ public class UserInterface
 
             boolean askForPrefix = true;
 
-            // FileReader fr = new FileReader();
             try{
                 words = FileReader.train(fileName);
             } 
