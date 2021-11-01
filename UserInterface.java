@@ -1,10 +1,7 @@
-import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.*;
-import java.lang.*; 
-import java.io.*; 
 /**
  * This is where the high level commands happen
  *
@@ -23,16 +20,17 @@ public class UserInterface
         while(takeInput){
             System.out.println("What is the file name?");
             fileName = scan.nextLine();
-            if(fileName.equals(".quit")){
+            if(fileName.equals(".quit") || fileName.equals(".exit")){
                 takeInput = false;
+                scan.close();
                 return;
             }
 
             boolean askForPrefix = true;
 
-            FileReader fr = new FileReader();
+            // FileReader fr = new FileReader();
             try{
-                words = fr.train(fileName);
+                words = FileReader.train(fileName);
             } 
             catch(Exception e){
                 System.out.println("Error: " + e);
@@ -44,8 +42,9 @@ public class UserInterface
             while (askForPrefix){
                 System.out.println("What is your search?");
                 String prefix = scan.nextLine();
-                if(prefix.equals(".quit")){
+                if(prefix.equals(".quit") || prefix.equals(".exit")){
                     takeInput = false;
+                    scan.close();
                     return;
                 }
                 
@@ -78,5 +77,7 @@ public class UserInterface
                 }
             }
         }
+
+        scan.close();
     }
 }
