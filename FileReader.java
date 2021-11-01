@@ -1,9 +1,7 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Collections;
 
 /**
  * Write a description of class FileReader here.
@@ -15,7 +13,6 @@ public class FileReader
 {
     // instance variables - replace the example below with your own
 
-    private Scanner keyboard = new Scanner(System.in); 
     protected static ArrayList<Word> words;
     
     /**
@@ -40,6 +37,8 @@ public class FileReader
             long score = Long.parseLong(wordsInLine[0]);
             words.add(new Word(wordsInLine[1].toLowerCase(), score));
         }
+
+        keyboard.close();
         
         return words;
     }
